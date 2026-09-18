@@ -1527,4 +1527,29 @@ JAVASCRIPT,
             PluginFieldsLabelTranslation::class,
         ];
     }
+
+    /**
+     * Display custom fields for main body placement
+     *
+     * @param array $params Contains 'item' (the GLPI object being rendered)
+     * @return void
+     */
+    public static function showForMainBody(array $params): void
+    {
+        $item = $params['item'] ?? null;
+        if (!$item || !($item instanceof CommonGLPI)) {
+            return;
+        }
+
+        $containers = PluginFieldsContainer::getEntries('dom_main_after_desc', true);
+        $itemtype   = $item->getType();
+
+        if (isset($containers[$itemtype])) {
+            foreach ($containers[$itemtype] as $container_name => $container_label) {
+                echo "<div class='plugin_fields_custom_block'>";
+                self::showForContainer($container_name, $item);
+                echo "</div>";
+            }
+        }
+    }
 }

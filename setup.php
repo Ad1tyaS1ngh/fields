@@ -218,6 +218,11 @@ function plugin_init_fields()
             'PluginFieldsField',
             'showForTab',
         ];
+
+        $PLUGIN_HOOKS['post_item_form']['fields'][] = [
+            'PluginFieldsContainerDisplay',
+            'showForMainBody',
+        ];
     }
 }
 

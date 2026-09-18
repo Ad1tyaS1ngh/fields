@@ -1201,6 +1201,7 @@ HTML;
             'tab'    => __('Add tab', 'fields'),
             'dom'    => __('Insertion in the form (before save button)', 'fields'),
             'domtab' => __('Insertion in the form of a specific tab (before save button)', 'fields'),
+            'dom_main_after_desc' => __('Insert in main body (after description)', 'fields'),
         ];
     }
 
